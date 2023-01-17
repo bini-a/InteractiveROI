@@ -6,9 +6,9 @@ An Interactive python application built using matplotlib that allows selection o
 ## Features
 - Interactively select ROI on a series of image files by mouth clicks
   - Left click anywhere to start and make a polygon by dragging the mouse, finish drawing the polygon by double right click
-- View your selection of ROI overlaid on the particular image
-- View only selected ROI
-- Easily browse next and previous images with buttons
+- View your selection of ROI overlaid on an image
+- View selected ROI Only
+- Easily navigate series of images using the next and previous buttons
 - Apply selected ROI to adjacent similar images
 - Restart Masking for any images
 - Click Finish Button
@@ -21,8 +21,8 @@ Clone the repo, then run
 python src/interactive_roi.py
 ```
 ### Example
-![alt text](https://github.com/bini-a/InteractiveRoi/blob/main/example/img_1.png) | ![alt text](https://github.com/bini-a/InteractiveRoi/blob/main/example/img_2.png)
-![alt text](https://github.com/bini-a/InteractiveRoi/blob/main/example/img_3.png)![alt text](https://github.com/bini-a/InteractiveRoi/blob/main/example/img_4.png)
+<img src = "example/img_1.png" width ="450" /><img src = "example/img_2.png" width ="450" />
+<img src = "example/img_3.png" width ="450" /><img src = "example/img_4.png" width ="450" />
 
 ## Credits
 Based on [MATLAB's Region of Interest](https://www.mathworks.com/help/images/ref/roipoly.html) and [roipoly.py](https://github.com/jdoepfert/roipoly.py)
