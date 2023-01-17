@@ -6,9 +6,9 @@ An Interactive python application built using matplotlib that allows selection o
 ## Features
 - Interactively select ROI on a series of image files by mouth clicks
   - Left click anywhere to start and make a polygon by dragging the mouse, finish drawing the polygon by double right click
-- View your selection of ROI overlaid on the particular image
-- View only selected ROI
-- Easily browse next and previous images with buttons
+- View your selection of ROI overlaid on an image
+- View selected ROI Only
+- Easily navigate series of images using the next and previous buttons
 - Apply selected ROI to adjacent similar images
 - Restart Masking for any images
 - Click Finish Button
