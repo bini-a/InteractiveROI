@@ -34,8 +34,6 @@ class RoiPoly:
             Axes on which to draw the ROI
         color: str
            Color of the ROI
-        roicolor: str
-            deprecated, use `color` instead
         show_fig: bool
             Display the figure upon initializing a RoiPoly object
         close_fig: bool

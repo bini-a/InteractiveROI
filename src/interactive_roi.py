@@ -12,7 +12,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Button
 from matplotlib.path import Path as MplPath
-mpl.use('Qt5Agg')  # matplotlib backend for windows
+
+# use matplotlib backend for your OS
+mpl.use('Qt5Agg')  # backend for windows
 
 
 # initialize global variables
@@ -269,12 +271,10 @@ def finish_masking(event):
         columns=["Date", "mask_id", "file_path", "WY", "list_index", "poly_verts"])
     image_file_info.set_index("WY", inplace=True)
     # print(image_file_info.head())
-
     # list of water years
     list_wy = list(image_file_info.index.unique())
     print("STARTED SAVING")
     print("Saving takes about 1 second per an image file")
-
     for water_year in list_wy:
         # Create folders for each water year
         wy_dest = folder_path + "/" + "WY" + str(water_year)
@@ -311,8 +311,8 @@ def finish_masking(event):
     plt.close()
 
 
-# Sample Image Local Watershed Folder (eg. W1)
-folder_path = r"D:\dku\Projects\img"
+# Sample Image Local Folder
+folder_path = "folder_path"
 
 # Read paths to all the images into image_folder list
 image_folder = glob2.glob(folder_path + "/*")
