@@ -2,6 +2,7 @@ import re
 from PIL import Image
 import numpy as np
 
+
 class ImageFile:
     """ Image File class to save file path, file name, date, mask_id"""
 
@@ -15,15 +16,16 @@ class ImageFile:
         reads image path and returns original image(np.array)
         if sliced=True, returns sliced image for faster display
         """
-        img =  np.asarray(Image.open(self.path))
+        img = np.asarray(Image.open(self.path))
         return img if not sliced else img[::2, ::2]
+
 
 class WaterImageFile(ImageFile):
     def __init__(self, filename):
         super().__init__(filename)
         self.date = self.get_date()
         self.mm, self.dd, self.yy = self.date.split("/")
-    
+
     def get_date(self):
         """
         extracts date pattern (MM/DD/YY) from file name (eg. Hbwtr_w3_20200315_115918.JPG)

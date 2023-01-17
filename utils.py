@@ -1,6 +1,7 @@
 import numpy as np
 from matplotlib.path import Path as MplPath
 
+
 def apply_mask(im, mask):
     """
     :param im: image np.array
@@ -32,4 +33,3 @@ def get_mask_poly_verts(image, poly_verts, on_original=True):
     roi_path = MplPath(poly_verts)
     mask = roi_path.contains_points(points).reshape((ny, nx))
     return mask
-

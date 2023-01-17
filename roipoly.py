@@ -23,7 +23,6 @@ def deprecation(message):
 
 class RoiPoly:
 
-
     def __init__(self, fig=None, ax=None, color='b',
                  roicolor=None, show_fig=True, close_fig=True):
         """
@@ -69,7 +68,7 @@ class RoiPoly:
             'motion_notify_event', self.__motion_notify_callback)
         self.__cid2 = self.fig.canvas.mpl_connect(
             'button_press_event', self.__button_press_callback)
-        ## checks for left mouse double click or right mouse click
+        # checks for left mouse double click or right mouse click
         self.finished_clicking = False
 
         if show_fig:
@@ -96,7 +95,7 @@ class RoiPoly:
         """
 
         # print("Image Shape", np.shape(image))
-        if len(np.shape(image)) ==3:
+        if len(np.shape(image)) == 3:
             ny, nx, nz = np.shape(image)
         else:
             ny, nx = np.shape(image)
@@ -105,7 +104,7 @@ class RoiPoly:
 
         # Create vertex coordinates for each grid cell...
         # (<0,0> is at the top left of the grid in this system)
-        x, y= np.meshgrid(np.arange(nx), np.arange(ny))
+        x, y = np.meshgrid(np.arange(nx), np.arange(ny))
         x, y = x.flatten(), y.flatten()
         points = np.vstack((x, y)).T
         roi_path = MplPath(poly_verts)
