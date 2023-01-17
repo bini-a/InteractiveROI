@@ -1,7 +1,7 @@
 # Interactive ROI
-Interactive Region of Interest(ROI) Selection Application
 
-An Interactive python application built using matplotlib that allows selection of region of interest in image files. Originally developed for water image files, it can be extended for different purposes.
+This is an Interactive Region of Interest(ROI) Selection Application built using matplotlib that allows selection of region of interest in image files.
+I originally wrote this code for use with river and water image files, but it can be extended for multiple purposes.
 
 ## Features
 - Interactively select ROI on a series of image files by mouth clicks
