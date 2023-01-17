@@ -1,4 +1,6 @@
 # import libraries
+from image_file import WaterImageFile
+from utils import get_mask_poly_verts, apply_mask
 import os.path
 import re
 import matplotlib as mpl
@@ -11,10 +13,6 @@ import matplotlib.pyplot as plt
 from matplotlib.widgets import Button
 from matplotlib.path import Path as MplPath
 mpl.use('Qt5Agg')  # matplotlib backend for windows
-
-
-from utils import get_mask_poly_verts, apply_mask
-from image_file import WaterImageFile
 
 
 # initialize global variables
@@ -38,11 +36,13 @@ my_roi = RoiPoly(color='k', show_fig=False)
 w = 6
 h = 6
 
+
 class CallBack:
     """
     Class that allows sliding through images and display original images and masked images
     """
     index = 0  # this holds the current index of image
+
     def next(self, event):
         """
         :param event: event callback for matplotlib button
@@ -75,13 +75,13 @@ class CallBack:
         img_display_axis.set_title(
             "Click next or draw new ROI for Date: {}".format(image_file_list[self.index].get_date()))
         plt.draw()
-        
+
     def index_in_range(self):
         """
         Check if the index is within range of image_file_list
         """
-        return self.index>=0 and self.index<len(image_file_list)
-    
+        return self.index >= 0 and self.index < len(image_file_list)
+
     def get_masked_img(self):
         """
         Apply mask from poly_verts_list and return masked image
@@ -312,7 +312,6 @@ def finish_masking(event):
 
 
 # Sample Image Local Watershed Folder (eg. W1)
-#TODO 
 folder_path = r"D:\dku\Projects\img"
 
 # Read paths to all the images into image_folder list
@@ -327,7 +326,7 @@ for filename in image_folder[:50]:
     curr_IF = WaterImageFile(filename)
     image_file_list.append(curr_IF)
 
-print(len(image_folder))
+# print(len(image_folder))
 # sort by year, then month, then day
 image_file_list = np.array(
     sorted(image_file_list, key=lambda x: (x.yy, x.mm, x.dd)))
