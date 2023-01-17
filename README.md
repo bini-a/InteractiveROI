@@ -20,7 +20,9 @@ Clone the repo, then run
 ```Bash
 python src/interactive_roi.py
 ```
-
+### Example
+![alt text](https://github.com/bini-a/InteractiveRoi/blob/main/example/img_1.png) | ![alt text](https://github.com/bini-a/InteractiveRoi/blob/main/example/img_2.png)
+![alt text](https://github.com/bini-a/InteractiveRoi/blob/main/example/img_3.png)![alt text](https://github.com/bini-a/InteractiveRoi/blob/main/example/img_4.png)
 
 ## Credits
 Based on [MATLAB's Region of Interest](https://www.mathworks.com/help/images/ref/roipoly.html) and [roipoly.py](https://github.com/jdoepfert/roipoly.py)
