@@ -16,7 +16,11 @@ An Interactive python application built using matplotlib that allows selection o
   - Saves a pandas dataframe that contains all ROI selection information of all images, which can be used to reconstruct images)
 
 ### Usage
-Clone the repo and run src/interactive_roi.py  
+Clone the repo, then run 
+```Bash
+python src/interactive_roi.py
+```
+
 
 ## Credits
 Based on [MATLAB's Region of Interest](https://www.mathworks.com/help/images/ref/roipoly.html) and [roipoly.py](https://github.com/jdoepfert/roipoly.py)
