@@ -21,9 +21,9 @@ Clone the repo, then run
 python src/interactive_roi.py
 ```
 ### Example
-<img src = "example/img_1.png" width ="300" /><img src = "example/img_2.png" width ="300" />
+<img src = "example/img_1.png" width ="300" />     <img src = "example/img_2.png" width ="300" />
 
-<img src = "example/img_3.png" width ="300" /><img src = "example/img_4.png" width ="300" />
+<img src = "example/img_3.png" width ="300" height="300"/>    <img src = "example/img_4.png" width ="300" height="300" />
 
 ## Credits
 Based on [MATLAB's Region of Interest](https://www.mathworks.com/help/images/ref/roipoly.html) and [roipoly.py](https://github.com/jdoepfert/roipoly.py)
