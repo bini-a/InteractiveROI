@@ -326,7 +326,6 @@ for filename in image_folder[:50]:
     curr_IF = WaterImageFile(filename)
     image_file_list.append(curr_IF)
 
-# print(len(image_folder))
 # sort by year, then month, then day
 image_file_list = np.array(
     sorted(image_file_list, key=lambda x: (x.yy, x.mm, x.dd)))
