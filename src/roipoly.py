@@ -1,25 +1,15 @@
-"""Draw polygon regions of interest (ROIs) in matplotlib images,
+"""
+Based on Roipoly
+Draw polygon regions of interest (ROIs) in matplotlib images,
 similar to Matlab's roipoly function.
 """
 
 import sys
-import logging
-import warnings
 
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.path import Path as MplPath
 from matplotlib.widgets import Button
-
-
-logger = logging.getLogger(__name__)
-
-warnings.simplefilter('always', DeprecationWarning)
-
-
-def deprecation(message):
-    warnings.warn(message, DeprecationWarning)
-
 
 class RoiPoly:
 
@@ -166,7 +156,6 @@ class RoiPoly:
                 # Move line around
                 x_data = [self.previous_point[0], x]
                 y_data = [self.previous_point[1], y]
-                logger.debug("draw line x: {} y: {}".format(x_data, y_data))
                 self.line.set_data(x_data, y_data)
                 self.fig.canvas.draw()
 
@@ -175,7 +164,6 @@ class RoiPoly:
             x, y = event.xdata, event.ydata
             ax = event.inaxes
             if event.button == 1 and not event.dblclick:
-                logger.debug("Received single left mouse button click")
                 if self.line is None:  # If there is no line, create a line
                     self.line = plt.Line2D([x, x], [y, y],
                                            marker='o', color=self.color)
@@ -191,10 +179,6 @@ class RoiPoly:
                     # If there is a line, create a segment
                     x_data = [self.previous_point[0], x]
                     y_data = [self.previous_point[1], y]
-                    logger.debug(
-                        "draw line x: {} y: {}".format(x_data, y_data))
-                    self.line = plt.Line2D(x_data, y_data,
-                                           marker='o', color=self.color)
                     self.previous_point = [x, y]
                     self.x.append(x)
                     self.y.append(y)
@@ -207,8 +191,6 @@ class RoiPoly:
                   self.line is not None):
                 self.finished_clicking = True
                 # Close the loop and disconnect
-                logger.debug("Received single right mouse button click or "
-                             "double left click")
                 self.fig.canvas.mpl_disconnect(self.__cid1)
                 self.fig.canvas.mpl_disconnect(self.__cid2)
 
@@ -224,16 +206,3 @@ class RoiPoly:
                 if not sys.flags.interactive and self.close_figure:
                     #  Figure has to be closed so that code can continue
                     plt.close(self.fig)
-
-    # For compatibility with old version
-    def displayMean(self, *args, **kwargs):
-        deprecation("Use 'display_mean' instead of 'displayMean'!")
-        return self.display_mean(*args, **kwargs)
-
-    def getMask(self, *args, **kwargs):
-        deprecation("Use 'get_mask()' instead of 'getMask'!")
-        return self.get_mask(*args, **kwargs)
-
-    def displayROI(self, *args, **kwargs):
-        deprecation("Use 'display_roi' instead of 'displayROI'!")
-        return self.display_roi(*args, **kwargs)
